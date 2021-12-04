@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"/>
+
+    <script>
+            $.ajax({
+            url:'http://localhost/step-project-se/user/list',
+            method:'GET',
+            contentType: "application/json",
+            dataType:'json',
+            success:function(response){
+                var trHTML='';
+                for(var i=0;i<response.length;i++){
+                    trHTML=trHTML+'<tr><td>'+response[i].id+'</td>' +
+                        '<td>'+response[i].userName+'</td>' +
+                        '<td>'+response[i].phoneNumber+'</td></tr>';
+                }
+                $('#tBody').append(trHTML);
+            },
+            error:function(response){
+            }
+            });
+    </script>
+    <style>
+        body {
+            background-color: aliceblue;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            border-bottom-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Phone Book</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>User ID</th>
+            <th>User Name</th>
+            <th>Phone Number</th>
+        </tr>
+        </thead>
+
+        <tbody id="tBody"></tbody>
+    </table>
+</div>
+
+</body>
+
+</html>
