@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
         $.ajax({
-            url:'http://localhost/step-project-se/user/status',
+            url: process.env.BACKEND_URL+'/step-project-se/user/status',
             method:'GET',
             contentType: "application/json",
             dataType:'json',

@@ -11,7 +11,7 @@
 
     <script>
             $.ajax({
-            url:'http://localhost/step-project-se/user/list',
+            url:process.env.BACKEND_URL+'/step-project-se/user/list',
             method:'GET',
             contentType: "application/json",
             dataType:'json',
